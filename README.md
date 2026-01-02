@@ -2,6 +2,8 @@
 
 一个基于 EdgeOne Pages 构建的随机图片分发系统。
 
+Demo：https://picture.thwthw.dpdns.org/
+
 ## 🌟 特性
 
 - **🚀 极速响应**：基于 EdgeOne 全球边缘节点实现图片分发。
