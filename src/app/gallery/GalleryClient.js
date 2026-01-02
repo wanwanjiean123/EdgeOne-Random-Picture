@@ -1,23 +1,34 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import GalleryItem from './GalleryItem';
 
 export default function GalleryClient({ initialImages }) {
   const [allImages, setAllImages] = useState(initialImages || []);
   const [selectedImage, setSelectedImage] = useState(null);
+  const containerRef = useRef(null);
+  const gridRef = useRef(null);
 
-  useEffect(() => {
-    if (!initialImages) {
-      // This shouldn't happen with SSR but just in case
-      fetch('/api/images').then(res => res.json()).then(data => {
-        const combined = [
-          ...data.pc.map(img => ({ ...img, type: 'PC' })),
-          ...data.mobile.map(img => ({ ...img, type: 'Mobile' }))
-        ].sort(() => Math.random() - 0.5);
-        setAllImages(combined);
-      });
+  useGSAP(() => {
+    if (gridRef.current) {
+      gsap.fromTo(gridRef.current.children,
+        { opacity: 0, y: 20 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 0.5, 
+          stagger: 0.05, 
+          ease: "power2.out",
+          onComplete: () => {
+            // Clear transforms to avoid stacking context issues, but keep opacity
+            gsap.set(gridRef.current.children, { clearProps: "transform" });
+          }
+        }
+      );
     }
-  }, [initialImages]);
+  }, { scope: containerRef, dependencies: [allImages] });
 
   const openLightbox = (img) => {
     setSelectedImage(img);
@@ -30,7 +41,7 @@ export default function GalleryClient({ initialImages }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white font-sans">
+    <div ref={containerRef} className="min-h-screen bg-[#0a0a0a] text-white font-sans">
       <header className="sticky top-0 z-50 flex justify-between items-center px-8 py-4 bg-[rgba(10, 10, 10, 0.8)] backdrop-blur-md border-b border-white/5">
         <div className="flex items-center gap-3">
           <div className="text-xl font-bold tracking-tight">PicGallery</div>
@@ -41,20 +52,14 @@ export default function GalleryClient({ initialImages }) {
         </div>
       </header>
 
-      <main className="p-3 grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] auto-rows-[150px] grid-flow-dense gap-3">
+      <main ref={gridRef} className="p-3 grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] auto-rows-[150px] grid-flow-dense gap-3 pb-20">
         {allImages.map((img, idx) => (
-          <div 
-            key={idx}
-            onClick={() => openLightbox(img)}
-            className={`relative overflow-hidden rounded-xl bg-[#1a1a1a] cursor-zoom-in transition-transform hover:scale-[1.02] hover:z-10 ${img.type === 'PC' ? 'col-span-2 row-span-1' : 'col-span-1 row-span-2'}`}
-          >
-            <img 
-              src={`/images/${img.src}`} 
-              alt="gallery image" 
-              className="w-full h-full object-cover block"
-              loading={idx < 12 ? "eager" : "lazy"}
-            />
-          </div>
+          <GalleryItem 
+            key={idx} 
+            img={img} 
+            idx={idx} 
+            onClick={() => openLightbox(img)} 
+          />
         ))}
       </main>
 

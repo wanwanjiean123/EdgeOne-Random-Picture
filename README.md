@@ -1,14 +1,14 @@
-# EdgeOne Random Picture API (Next.js Edition)
+# EdgeOne Random Picture
 
-一个基于 Tencent Cloud EdgeOne Pages 构建的高性能、全栈随机图片分发系统。利用 Next.js 的 SSR 和 API Routes 能力，实现智能设备识别与极速图片分发。
+一个基于 Tencent Cloud EdgeOne Pages 构建的高性能、全栈随机图片分发系统。利用 Next.js 的静态生成与 API Routes 能力，实现智能设备识别与极速图片分发。
 
 ## 🌟 特性
 
-- **🚀 极速响应**：基于 EdgeOne 全球边缘节点，结合 Next.js SSR，实现毫秒级首屏加载。
+- **🚀 极速响应**：基于 EdgeOne 全球边缘节点，结合 Next.js 静态优化，实现毫秒级首屏加载。
 - **📱 智能分发**：自动识别访问者设备类型（PC/移动端），精准推送适配尺寸的图片。
 - **🖼️ 极简图库**：内置高性能图库预览页面，支持瀑布流布局、图片详情查看及原图下载。
-- **🌓 现代 UI**：采用 Tailwind CSS 构建，毛玻璃效果，极致简约设计，支持深色模式。
-- **🛠️ 静态优化**：采用 SSG + 客户端加载模式，移除冗余 SSR 逻辑，确保函数包体积最小化，适配 EdgeOne Pages。
+- **✨ 动感交互**：集成 GSAP 动画引擎，实现丝滑的页面过渡与图片加载效果。
+- **🛠️ 架构优化**：采用构建时元数据生成技术，确保 SSR 函数包体积最小化，适配边缘计算限制。
 
 ## 🛠️ 快速开始
 

@@ -55,7 +55,7 @@ export default function HomeClient() {
         </div>
 
         <h1 className="text-5xl font-black tracking-tight mb-4 bg-gradient-to-b from-white via-white to-white/40 bg-clip-text text-transparent">
-          Random Pic
+          EdgeOne Pic
         </h1>
         
         <p className="text-white/50 text-base font-medium mb-10 leading-relaxed">
