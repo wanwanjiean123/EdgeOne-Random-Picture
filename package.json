@@ -1,0 +1,10 @@
+{
+  "name": "random-picture-api",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node generate-image-urls.js"
+  },
+  "devDependencies": {
+    "image-size": "^2.0.2"
+  }
+}
