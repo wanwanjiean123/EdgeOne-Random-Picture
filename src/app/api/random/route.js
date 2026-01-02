@@ -33,10 +33,13 @@ export async function GET(request) {
     return NextResponse.json({ url: redirectUrl });
   }
 
-  // 修复重定向问题：优先使用 Host 头部构建绝对路径，避免内部端口泄露
-  const host = request.headers.get('x-forwarded-host') || request.headers.get('host');
-  const protocol = request.headers.get('x-forwarded-proto') || 'http';
-  const absoluteUrl = host ? `${protocol}://${host}${redirectUrl}` : new URL(redirectUrl, request.url).toString();
-
-  return NextResponse.redirect(absoluteUrl, 302);
+  // 使用相对路径重定向，避免 EdgeOne 内部域名泄露问题
+  // NextResponse.redirect 要求绝对路径，所以我们手动构建 Response
+  return new Response(null, {
+    status: 302,
+    headers: {
+      'Location': redirectUrl,
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+    },
+  });
 }

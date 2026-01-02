@@ -44,7 +44,7 @@ export default function GalleryClient({ initialImages }) {
     <div ref={containerRef} className="min-h-screen bg-[#0a0a0a] text-white font-sans">
       <header className="sticky top-0 z-50 flex justify-between items-center px-8 py-4 bg-[rgba(10, 10, 10, 0.8)] backdrop-blur-md border-b border-white/5">
         <div className="flex items-center gap-3">
-          <div className="text-xl font-bold tracking-tight">PicGallery</div>
+          <div className="text-xl font-bold tracking-tight">EdgeOne Gallery</div>
         </div>
         <div className="flex gap-2 items-center">
           <a href="/" className="text-[#a1a1aa] hover:text-white px-4 py-2 text-sm no-underline">首页</a>
@@ -132,7 +132,7 @@ export default function GalleryClient({ initialImages }) {
       )}
 
       <footer className="p-12 text-center text-[#a1a1aa] text-sm border-t border-white/5">
-        <p>© 2024 <a href="https://tianhw.top" target="_blank" className="text-inherit no-underline hover:text-white transition-colors">THW</a>. Powered by <a href="https://github.com/H2O-ME/EdgeOne-Random-Picture" target="_blank" className="text-inherit no-underline hover:text-white transition-colors">EdgeOne-Random-Picture</a></p>
+        <p>© 2024 <a href="https://tianhw.top" target="_blank" className="text-inherit no-underline hover:text-white transition-colors">THW</a>. Powered by <a href="https://github.com/H2O-ME/EdgeOne-Random-Picture" target="_blank" className="text-inherit no-underline hover:text-white transition-colors">EdgeOne Pages</a></p>
       </footer>
     </div>
   );

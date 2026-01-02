@@ -1,14 +1,14 @@
 # EdgeOne Random Picture
 
-一个基于 Tencent Cloud EdgeOne Pages 构建的高性能、全栈随机图片分发系统。利用 Next.js 的静态生成与 API Routes 能力，实现智能设备识别与极速图片分发。
+一个基于 EdgeOne Pages 构建的随机图片分发系统。
 
 ## 🌟 特性
 
-- **🚀 极速响应**：基于 EdgeOne 全球边缘节点。。
+- **🚀 极速响应**：基于 EdgeOne 全球边缘节点实现图片分发。
 - **📱 智能分发**：自动识别访问者设备类型（PC/移动端），精准推送适配尺寸的图片。
-- **🖼️ 极简图库**：内置图库预览页面，支持瀑布流布局、图片详情查看及原图下载。
-- **✨ 动感交互**：集成 GSAP 动画引擎，实现丝滑的页面过渡与图片加载效果。
-- **🛠️ 架构优化**：采用构建时元数据生成技术、适配边缘计算限制。
+- **🖼️ 沉浸式图库**：内置瀑布流图库，支持 Lightbox 预览、原图下载及 GSAP 丝滑动画。
+- **✨ 动感交互**：集成 GSAP 动画引擎，实现沉浸式首页缩放与页面无缝过渡。
+- **🛠️ 架构优化**：采用构建时元数据生成技术。
 
 ## 🛠️ 快速开始
 
@@ -37,10 +37,10 @@ pnpm dev
 
 [![使用 EdgeOne Pages 部署](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/pages/new?repository-url=https://github.com/H2O-ME/EdgeOne-Random-Picture)
 
-点击上方一键按钮即可快速部署，相关配置可以照下方参数填写：
-- **框架预设**：选择 `Next.js`。
-- **构建命令**：`npm run build`。
-- **输出目录**：`.next`。
+点击上方一键按钮即可快速部署，相关配置应该会自动识别，也可以照下方参数填写：
+- **框架预设**：选择 `Next.js`
+- **构建命令**：`npm run build`
+- **输出目录**：`.next`
 
 ## 📡 API 接口
 
