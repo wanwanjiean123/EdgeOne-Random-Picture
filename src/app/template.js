@@ -29,7 +29,7 @@ export default function Template({ children }) {
   }, { scope: containerRef, dependencies: [pathname] });
 
   return (
-    <div ref={containerRef} className="min-h-full w-full">
+    <div ref={containerRef} className="w-full">
       {children}
     </div>
   );

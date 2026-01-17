@@ -96,18 +96,18 @@ export default function GalleryClient({ initialImages }) {
   };
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-[#0a0a0a] text-white font-sans">
-      <header className="sticky top-0 z-50 flex justify-between items-center px-8 py-4 bg-[rgba(10, 10, 10, 0.8)] backdrop-blur-md border-b border-white/5">
+    <div ref={containerRef} className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-white/10 relative">
+      <header className="absolute top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-4 bg-[#0a0a0a]/40 backdrop-blur-md border-b border-white/5">
         <div className="flex items-center gap-3">
           <div className="text-xl font-bold tracking-tight">EdgeOne Gallery</div>
         </div>
         <div className="flex gap-2 items-center">
-          <Link href="/" className="text-[#a1a1aa] hover:text-white px-4 py-2 text-sm no-underline">首页</Link>
+          <Link href="/" className="text-[#a1a1aa] hover:text-white px-4 py-2 text-sm no-underline transform transition-all active:scale-95">首页</Link>
           <a href="https://github.com/H2O-ME/EdgeOne-Random-Picture" target="_blank" className="bg-[#262626] text-[#a1a1aa] px-4 py-2 rounded-md text-sm font-medium hover:bg-[#404040] hover:text-white transition-all no-underline">GitHub</a>
         </div>
       </header>
 
-      <main ref={gridRef} className="p-3 grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] auto-rows-[150px] grid-flow-dense gap-3 pb-20">
+      <main ref={gridRef} className="pt-24 p-3 grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] auto-rows-[150px] grid-flow-dense gap-3 pb-20 max-w-[1600px] mx-auto">
         {allImages.map((img, idx) => (
           <GalleryItem 
             key={idx} 

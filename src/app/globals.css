@@ -6,35 +6,38 @@
   --background-end-rgb: 0, 0, 0;
 }
 
-html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+html {
+  min-height: 100%;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-start-rgb));
-  overflow: hidden; /* 核心：默认锁定滚动，防止首次加载闪烁 */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
-/* 隐藏所有元素的滚动条轨道，但保持可滚动 */
-html, body, * {
-  -ms-overflow-style: none !important;  /* IE and Edge */
-  scrollbar-width: none !important;  /* Firefox */
+/* 极速隐藏滚动条：防止布局闪烁与残留 */
+html, body {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
 }
 
 html::-webkit-scrollbar, 
-body::-webkit-scrollbar, 
+body::-webkit-scrollbar,
 *::-webkit-scrollbar {
-  display: none !important; /* Chrome, Safari and Opera */
+  display: none !important;
   width: 0 !important;
   height: 0 !important;
+  background: transparent !important;
 }
 
-html {
-  scrollbar-gutter: auto;
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
 * {
