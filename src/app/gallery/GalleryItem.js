@@ -36,13 +36,13 @@ export default function GalleryItem({ img, idx, onClick }) {
   return (
     <div 
       onClick={onClick}
-      className={`relative overflow-hidden rounded-xl bg-[#1a1a1a] cursor-zoom-in transition-transform hover:scale-[1.02] hover:z-10 ${img.type === 'PC' ? 'col-span-2 row-span-1' : 'col-span-1 row-span-2'}`}
+      className={`relative overflow-hidden bg-neutral-200 dark:bg-white/5 cursor-zoom-in group transition-all duration-300 hover:z-10 rounded-xl shadow-sm hover:shadow-xl ${img.type === 'PC' ? 'col-span-2 row-span-1' : 'col-span-1 row-span-2'}`}
     >
       <img 
         ref={imgRef}
         src={encodeURI(`/images/${img.thumb || img.src}`)} 
         alt="gallery image" 
-        className={`w-full h-full object-cover block transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`w-full h-full object-cover block transition-all duration-700 group-hover:scale-105 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         loading={idx < 20 ? "eager" : "lazy"}
         onLoad={() => setIsLoaded(true)}
         onError={() => setIsLoaded(true)}
